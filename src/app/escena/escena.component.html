@@ -1,5 +1,10 @@
-<div>
-    <button (click)="prev()">Anterior</button>
-    <button (click)="next()">Següent</button>
+<div class="main">
+    <img [src]="'assets/img/' + histories[currentScene].img" alt="">
+    <div class="contenido">
+        <button (click)="prev()">Anterior</button>
+        <button (click)="next()">Següent</button>
+        <p *ngFor="let historia of histories; let indice = index;"
+            [ngClass]=" {'currentPart': indice == currentScene, 'otherPart': indice != currentScene}">{{ historia.txt }}
+        </p>
+    </div>
 </div>
-<p *ngFor="let historia of histories; let indice = index;" [ngClass]=" {'currentPart': indice == currentScene, 'otherPart': indice != currentScene} ">{{ historia }}</p>

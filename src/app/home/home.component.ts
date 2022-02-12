@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Historia, historiesApi } from '../model/histories.array';
 
 @Component({
   selector: 'app-home',
@@ -7,25 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  arrayHistories =  [
-    "El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial",
+  arrayHistories: Historia[] = [];
 
-    "Sentia curiositat per l'interior de la nau i es va posar a inspeccionar-la. Va arribar a una sala amb dues portes.",
-  
-    "L'heroi va decidir travessar la porta que el portava a casa",
-  
-    "Mentrestant, altres herois no van tenir tanta sort en la seva elecció ..."
-  ];
+  esBenvinguda: boolean = true;
 
-  esBenvinguda = true;
-
-  iniciarHistoria() {
+  iniciarHistoria(): void {
     this.esBenvinguda = false;
   }
 
   constructor() { }
 
   ngOnInit(): void {
+    this.arrayHistories = [...historiesApi];
   }
 
 }

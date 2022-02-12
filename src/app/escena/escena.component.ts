@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Historia } from '../model/histories.array';
 
 @Component({
   selector: 'app-escena',
@@ -7,29 +8,26 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class EscenaComponent implements OnInit {
 
-  @Input() histories: string[] = [""];
+  @Input() histories: Historia[] = [];
 
   currentScene: number = 0;
-  
-  prev() {
+
+  prev(): void {
     if (this.currentScene == 0)
-      // this.currentScene = 0; //// igualando a 0 para evitar el efecto carrusel
-      this.currentScene = this.histories.length -1;
-    else 
-      this.currentScene--;      
+      this.currentScene = this.histories.length - 1;
+    else
+      this.currentScene--;
   }
 
-  next() {
-    if (this.currentScene == this.histories.length -1)
-      // this.currentScene = this.histories.length -1; //// igualando al máximo valor de la matriz para evitar efecto carrusel
+  next(): void {
+    if (this.currentScene == this.histories.length - 1)
       this.currentScene = 0;
-    else 
-      this.currentScene++; 
+    else
+      this.currentScene++;
   }
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
