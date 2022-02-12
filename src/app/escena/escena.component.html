@@ -1,1 +1,5 @@
-<p *ngFor="let historia of histories"> {{ historia }} </p>
+<div>
+    <button (click)="prev()">Anterior</button>
+    <button (click)="next()">Següent</button>
+</div>
+<p *ngFor="let historia of histories; let indice = index;" [ngClass]=" {'currentPart': indice == currentScene, 'otherPart': indice != currentScene} ">{{ historia }}</p>

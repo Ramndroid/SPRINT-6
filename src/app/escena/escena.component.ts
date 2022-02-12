@@ -9,6 +9,22 @@ export class EscenaComponent implements OnInit {
 
   @Input() histories: string[] = [""];
 
+  currentScene: number = 0;
+  
+  prev() {
+    if (this.currentScene == 0)
+      this.currentScene = this.histories.length -1;
+    else 
+      this.currentScene--;      
+  }
+
+  next() {
+    if (this.currentScene == this.histories.length -1)
+      this.currentScene = 0;
+    else 
+      this.currentScene++; 
+  }
+
   constructor() { }
 
   ngOnInit(): void {
