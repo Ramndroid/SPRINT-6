@@ -1,0 +1,17 @@
+<ng-template [ngIf]="esBenvinguda" [ngIfElse]="historia">
+
+    <div class="benvinguda">
+        <h1>Benvingut/da!</h1>
+        <h4>Aquí comença una breu història que té lloc a</h4>
+        <p><span class="enfasis">l'espai sideral</span></p>
+        <button (click)="iniciarHistoria()">Començar</button>
+    </div>
+
+</ng-template>
+
+
+<ng-template #historia>
+
+    <app-escena [histories]="arrayHistories"></app-escena>
+
+</ng-template>
